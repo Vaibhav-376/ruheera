@@ -1,6 +1,8 @@
 import { getCategories } from "@/app/actions/category";
 import { CategoryManager } from "./_components/CategoryManager";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminCategoriesPage() {
   const { categories, success, error } = await getCategories();
 

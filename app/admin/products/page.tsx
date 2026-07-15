@@ -2,6 +2,8 @@ import { getProducts } from "@/app/actions/product";
 import Link from "next/link";
 import { DeleteButton } from "./_components/DeleteButton";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminProductsPage() {
   const { products, success } = await getProducts();
 

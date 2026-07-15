@@ -7,6 +7,8 @@ import { HeroCarousel } from "@/components/HeroCarousel";
 import { Package, ShieldCheck, Mail } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const { products } = await getProducts();
   const { categories } = await getCategories();
