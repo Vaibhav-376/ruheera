@@ -31,7 +31,7 @@ export default async function ShopPage(props: Props) {
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <Link 
               href="/shop" 
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${!categoryId ? 'bg-black text-white' : 'bg-bg-secondary text-text-secondary hover:bg-black hover:text-white'}`}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${!categoryId ? 'bg-brand-gold text-black' : 'bg-bg-secondary text-text-secondary hover:bg-brand-gold hover:text-black'}`}
             >
               All
             </Link>
@@ -39,7 +39,7 @@ export default async function ShopPage(props: Props) {
               <Link 
                 key={cat.id}
                 href={`/shop?category=${cat.id}`} 
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${categoryId === cat.id ? 'bg-black text-white' : 'bg-bg-secondary text-text-secondary hover:bg-black hover:text-white'}`}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${categoryId === cat.id ? 'bg-brand-gold text-black' : 'bg-bg-secondary text-text-secondary hover:bg-brand-gold hover:text-black'}`}
               >
                 {cat.name}
               </Link>
@@ -57,7 +57,7 @@ export default async function ShopPage(props: Props) {
                       <div className="w-full h-full flex items-center justify-center text-text-light text-sm">No Image</div>
                     )}
                   </div>
-                  <div className="p-6 text-center bg-white">
+                  <div className="p-6 text-center bg-bg-secondary">
                     <h3 className="text-lg mb-2 font-heading font-medium text-text-primary tracking-wide">{product.name}</h3>
                     <p className="font-medium text-brand-gold-dark">₹{product.price}</p>
                   </div>

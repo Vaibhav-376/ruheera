@@ -20,7 +20,7 @@ export function Header() {
   ];
 
   return (
-    <header className="bg-white/90 backdrop-blur-md border-b border-border-color h-[80px] sticky top-0 z-50 transition-all duration-300">
+    <header className="bg-bg-primary/90 backdrop-blur-md border-b border-border-color h-[80px] sticky top-0 z-50 transition-all duration-300">
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-full">
         {/* Left: Logo */}
         <div className="flex items-center lg:w-[150px]">
@@ -89,7 +89,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-border-color overflow-hidden shadow-2xl absolute w-full"
+            className="md:hidden bg-bg-primary border-b border-border-color overflow-hidden shadow-2xl absolute w-full"
           >
             <nav className="flex flex-col py-6 px-6 gap-6">
               {navLinks.map((link) => (

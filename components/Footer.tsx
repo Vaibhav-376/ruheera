@@ -61,7 +61,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="text-center py-6 border-t border-black/5 text-text-light text-sm">
+      <div className="text-center py-6 border-t border-white/10 text-text-light text-sm">
         <p>&copy; {new Date().getFullYear()} Ruheera. All rights reserved.</p>
       </div>
     </footer>

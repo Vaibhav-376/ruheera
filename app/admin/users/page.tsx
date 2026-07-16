@@ -68,7 +68,7 @@ export default function UsersPage() {
     <div>
       <h1 className="font-heading text-3xl font-medium mb-8 text-text-primary">User Management</h1>
       
-      <div className="bg-white rounded-lg shadow-sm border border-border-color overflow-hidden">
+      <div className="bg-bg-primary rounded-lg shadow-sm border border-border-color overflow-hidden">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-border-color bg-bg-secondary text-sm font-medium uppercase tracking-widest text-text-secondary">
@@ -82,7 +82,7 @@ export default function UsersPage() {
               <tr key={user.id} className="border-b border-border-color last:border-0 hover:bg-bg-secondary transition-colors">
                 <td className="p-4 font-body text-text-primary">{user.email}</td>
                 <td className="p-4">
-                  <span className={`inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${user.role === 'ADMIN' ? 'bg-brand-gold-dark text-black' : 'bg-gray-200 text-gray-700'}`}>
+                  <span className={`inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${user.role === 'ADMIN' ? 'bg-brand-gold-dark text-black' : 'bg-bg-secondary text-text-secondary border border-border-color'}`}>
                     {user.role}
                   </span>
                 </td>

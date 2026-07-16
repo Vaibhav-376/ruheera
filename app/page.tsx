@@ -41,7 +41,7 @@ export default async function HomePage() {
                         <div className="w-full h-full flex items-center justify-center text-text-light text-sm">No Image</div>
                       )}
                     </div>
-                    <div className="p-8 text-center bg-white">
+                    <div className="p-8 text-center bg-bg-secondary">
                       <h3 className="text-lg mb-2 font-heading font-medium text-text-primary tracking-wide">{product.name}</h3>
                       <p className="font-medium text-brand-gold-dark">₹{product.price}</p>
                     </div>
@@ -51,7 +51,7 @@ export default async function HomePage() {
             </div>
             <FadeIn delay={0.4}>
               <div className="text-center">
-                <Link href="/shop" className="inline-block bg-transparent text-text-primary px-10 py-4 text-sm uppercase tracking-widest border border-text-primary transition-all duration-300 hover:bg-black hover:text-white hover:border-black">
+                <Link href="/shop" className="inline-block bg-transparent text-text-primary px-10 py-4 text-sm uppercase tracking-widest border border-text-primary transition-all duration-300 hover:bg-brand-gold hover:text-black hover:border-brand-gold">
                   View All Jewellery
                 </Link>
               </div>
@@ -102,7 +102,7 @@ export default async function HomePage() {
                   <h2 className="text-4xl md:text-5xl text-brand-gold-dark font-heading font-medium tracking-wide">Curated Collections</h2>
                   <p className="text-text-secondary text-lg mt-4 font-light">Discover jewellery designed for every chapter of your life.</p>
                 </div>
-                <Link href="/shop" className="mt-8 md:mt-0 inline-block bg-transparent text-text-primary px-8 py-3 text-sm uppercase tracking-widest border border-border-color transition-all duration-300 hover:border-black hover:bg-black hover:text-white">
+                <Link href="/shop" className="mt-8 md:mt-0 inline-block bg-transparent text-text-primary px-8 py-3 text-sm uppercase tracking-widest border border-border-color transition-all duration-300 hover:border-brand-gold hover:bg-brand-gold hover:text-black">
                   View All
                 </Link>
               </div>
@@ -150,7 +150,7 @@ export default async function HomePage() {
           <div className="max-w-[1000px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
             <FadeIn delay={0.1}>
               <div className="flex flex-col items-center">
-                <div className="w-[80px] h-[80px] rounded-full border border-brand-gold-dark/30 flex items-center justify-center mb-8 text-brand-gold-dark bg-white shadow-sm transition-transform duration-500 hover:-translate-y-2">
+                <div className="w-[80px] h-[80px] rounded-full border border-brand-gold-dark/30 flex items-center justify-center mb-8 text-brand-gold-dark bg-bg-primary shadow-sm transition-transform duration-500 hover:-translate-y-2">
                   <Package strokeWidth={1} size={32} />
                 </div>
                 <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-text-primary mb-4">Global Shipping</h3>
@@ -160,7 +160,7 @@ export default async function HomePage() {
             
             <FadeIn delay={0.2}>
               <div className="flex flex-col items-center">
-                <div className="w-[80px] h-[80px] rounded-full border border-brand-gold-dark/30 flex items-center justify-center mb-8 text-brand-gold-dark bg-white shadow-sm transition-transform duration-500 hover:-translate-y-2">
+                <div className="w-[80px] h-[80px] rounded-full border border-brand-gold-dark/30 flex items-center justify-center mb-8 text-brand-gold-dark bg-bg-primary shadow-sm transition-transform duration-500 hover:-translate-y-2">
                   <ShieldCheck strokeWidth={1} size={32} />
                 </div>
                 <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-text-primary mb-4">Secure Checkout</h3>
@@ -170,7 +170,7 @@ export default async function HomePage() {
             
             <FadeIn delay={0.3}>
               <div className="flex flex-col items-center">
-                <div className="w-[80px] h-[80px] rounded-full border border-brand-gold-dark/30 flex items-center justify-center mb-8 text-brand-gold-dark bg-white shadow-sm transition-transform duration-500 hover:-translate-y-2">
+                <div className="w-[80px] h-[80px] rounded-full border border-brand-gold-dark/30 flex items-center justify-center mb-8 text-brand-gold-dark bg-bg-primary shadow-sm transition-transform duration-500 hover:-translate-y-2">
                   <Mail strokeWidth={1} size={32} />
                 </div>
                 <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-text-primary mb-4">Personal Service</h3>
@@ -203,7 +203,7 @@ export default async function HomePage() {
                 <p className="text-lg text-text-secondary leading-relaxed mb-10 font-light">
                   We source only the finest ethical diamonds, precious gemstones, and purest metals. Our master artisans blend traditional techniques with modern design sensibilities to bring you collections that celebrate your individuality and mark your most precious moments.
                 </p>
-                <Link href="/our-story" className="inline-block bg-black text-white px-10 py-4 text-sm uppercase tracking-widest transition-all duration-300 hover:bg-brand-gold-dark hover:text-black">
+                <Link href="/our-story" className="inline-block bg-brand-gold text-black px-10 py-4 text-sm uppercase tracking-widest transition-all duration-300 hover:bg-brand-gold-dark hover:text-black">
                   Discover Our Story
                 </Link>
               </FadeIn>
