@@ -12,12 +12,13 @@ model User {
   email    String @unique
   password String
   role     String @default("USER")
-}
+} 
 
 model Category {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   name      String    @unique
   image     String?
+  gender    String    @default("UNISEX")
   products  Product[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -29,9 +30,49 @@ model Product {
   description String
   price       Float
   weight      Float?
+  gender      String    @default("UNISEX")
   images      String[]
   categoryId  String?   @db.ObjectId
   category    Category? @relation(fields: [categoryId], references: [id])
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+}
+
+model Lead {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  phone     String?
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String?     @db.ObjectId
+  name          String
+  email         String
+  phone         String
+  address       String
+  city          String
+  state         String
+  postalCode    String
+  notes         String?
+  items         OrderItem[]
+  subtotal      Float
+  status        String      @default("PENDING") // PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED
+  paymentMethod String      @default("COD")
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  orderId   String  @db.ObjectId
+  order     Order   @relation(fields: [orderId], references: [id])
+  productId String  @db.ObjectId
+  name      String
+  price     Float
+  image     String?
+  quantity  Int
 }

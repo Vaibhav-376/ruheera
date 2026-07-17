@@ -18,7 +18,7 @@ export function DeleteButton({ id }: { id: string }) {
     <button
       onClick={handleDelete}
       disabled={loading}
-      className="action-btn delete"
+      className="px-3 py-1.5 rounded-sm border border-[#c92a2a] text-[#c92a2a] text-xs font-medium bg-transparent transition-colors hover:bg-[#c92a2a] hover:text-white disabled:opacity-50"
     >
       {loading ? "..." : "Delete"}
     </button>

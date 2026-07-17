@@ -3,13 +3,30 @@
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
-export async function getProducts(categoryId?: string) {
+export async function getProducts(categoryId?: string, gender?: string, search?: string) {
   try {
-    const products = await prisma.product.findMany({
-      where: categoryId ? { categoryId } : undefined,
+    let products = await prisma.product.findMany({
+      where: {
+        ...(categoryId ? { categoryId } : {}),
+        ...(gender ? {
+          gender: {
+            in: [gender, 'UNISEX']
+          }
+        } : {})
+      },
       orderBy: { createdAt: 'desc' },
       include: { category: true }
     });
+
+    if (search && search.trim()) {
+      const query = search.trim().toLowerCase();
+      products = products.filter((p) =>
+        p.name.toLowerCase().includes(query) ||
+        p.description.toLowerCase().includes(query) ||
+        p.category?.name.toLowerCase().includes(query)
+      );
+    }
+
     return { success: true, products };
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -38,6 +55,7 @@ export async function createProduct(data: {
   weight?: number;
   images: string[];
   categoryId?: string;
+  gender?: string;
 }) {
   try {
     const product = await prisma.product.create({
@@ -48,6 +66,7 @@ export async function createProduct(data: {
         weight: data.weight,
         images: data.images,
         categoryId: data.categoryId,
+        gender: data.gender || "UNISEX",
       }
     });
     revalidatePath("/admin/products");
@@ -67,6 +86,7 @@ export async function updateProduct(id: string, data: {
   weight?: number;
   images?: string[];
   categoryId?: string | null;
+  gender?: string;
 }) {
   try {
     const product = await prisma.product.update({
@@ -78,6 +98,7 @@ export async function updateProduct(id: string, data: {
         weight: data.weight,
         images: data.images,
         categoryId: data.categoryId,
+        gender: data.gender,
       }
     });
     revalidatePath("/admin/products");

@@ -6,6 +6,7 @@ import { getCategories } from "@/app/actions/category";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Package, ShieldCheck, Mail } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { ProductCard } from "@/components/ProductCard";
 
 export const dynamic = "force-dynamic";
 
@@ -33,19 +34,7 @@ export default async function HomePage() {
             <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-10 mb-16">
               {featuredProducts.map((product, idx) => (
                 <FadeIn key={product.id} delay={idx * 0.1}>
-                  <Link href={`/product/${product.id}`} className="block bg-bg-secondary rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] group">
-                    <div className="w-full aspect-square overflow-hidden bg-[#f5f5f5]">
-                      {product.images && product.images.length > 0 ? (
-                        <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-text-light text-sm">No Image</div>
-                      )}
-                    </div>
-                    <div className="p-8 text-center bg-bg-secondary">
-                      <h3 className="text-lg mb-2 font-heading font-medium text-text-primary tracking-wide">{product.name}</h3>
-                      <p className="font-medium text-brand-gold-dark">₹{product.price}</p>
-                    </div>
-                  </Link>
+                  <ProductCard product={product} />
                 </FadeIn>
               ))}
             </div>

@@ -11,7 +11,7 @@ export default async function AdminProductsPage() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-heading text-text-primary">Products</h1>
-        <Link href="/admin/products/new" className="inline-block bg-text-primary text-bg-primary px-6 py-3 text-sm uppercase tracking-wide border border-text-primary transition-colors hover:bg-bg-primary hover:text-text-primary">
+        <Link href="/admin/products/new" className="inline-block bg-brand-gold-dark text-black px-6 py-3 text-sm uppercase tracking-widest font-medium rounded-sm border border-brand-gold-dark transition-all hover:bg-transparent hover:text-brand-gold-dark">
           Add New Product
         </Link>
       </div>
@@ -19,14 +19,14 @@ export default async function AdminProductsPage() {
       <div className="bg-bg-primary rounded-lg shadow-sm overflow-hidden">
         <table className="w-full border-collapse">
           <thead>
-            <tr>
-              <th className="p-4 text-left border-b border-border-color bg-[#fafafa] font-semibold text-text-secondary">Image</th>
-              <th className="p-4 text-left border-b border-border-color bg-[#fafafa] font-semibold text-text-secondary">Name</th>
-              <th className="p-4 text-left border-b border-border-color bg-[#fafafa] font-semibold text-text-secondary">Price</th>
-              <th className="p-4 text-left border-b border-border-color bg-[#fafafa] font-semibold text-text-secondary">Weight</th>
-              <th className="p-4 text-left border-b border-border-color bg-[#fafafa] font-semibold text-text-secondary">Category</th>
-              <th className="p-4 text-left border-b border-border-color bg-[#fafafa] font-semibold text-text-secondary">Created At</th>
-              <th className="p-4 text-left border-b border-border-color bg-[#fafafa] font-semibold text-text-secondary">Actions</th>
+            <tr className="border-b border-border-color bg-bg-secondary text-sm font-medium uppercase tracking-widest text-text-secondary">
+              <th className="p-4 text-left">Image</th>
+              <th className="p-4 text-left">Name</th>
+              <th className="p-4 text-left">Price</th>
+              <th className="p-4 text-left">Weight</th>
+              <th className="p-4 text-left">Category</th>
+              <th className="p-4 text-left">Created At</th>
+              <th className="p-4 text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -38,7 +38,7 @@ export default async function AdminProductsPage() {
               </tr>
             ) : (
               products.map((product) => (
-                <tr key={product.id} className="last:border-0 border-b border-border-color">
+                <tr key={product.id} className="last:border-0 border-b border-border-color hover:bg-bg-secondary transition-colors">
                   <td className="p-4 text-left">
                     {product.images && product.images.length > 0 ? (
                       <img
@@ -57,7 +57,7 @@ export default async function AdminProductsPage() {
                   <td className="p-4 text-left">{new Date(product.createdAt).toLocaleDateString()}</td>
                   <td className="p-4 text-left">
                     <div className="flex gap-2">
-                      <Link href={`/admin/products/${product.id}/edit`} className="px-3 py-1.5 rounded border border-[#1a73e8] text-[#1a73e8] text-xs font-medium bg-transparent transition-colors hover:bg-[#1a73e8] hover:text-white">
+                      <Link href={`/admin/products/${product.id}/edit`} className="px-3 py-1.5 rounded-sm border border-border-color text-text-secondary text-xs font-medium transition-colors hover:bg-white hover:text-black">
                         Edit
                       </Link>
                       <DeleteButton id={product.id} />

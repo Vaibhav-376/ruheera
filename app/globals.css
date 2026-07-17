@@ -1,29 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #050505;
-  --color-bg-secondary: #111111;
+  /* Black */
+  --color-bg-primary: #080808;
+  --color-bg-secondary: #141414;
+  --color-bg-elevated: #1e1e1e;
   --color-bg-accent: #d4af37;
-  
+
+  /* White */
   --color-text-primary: #ffffff;
-  --color-text-secondary: #e0e0e0;
-  --color-text-light: #999999;
-  
+  --color-text-secondary: #cfcfcf;
+  --color-text-light: #8a8a8a;
+
+  /* Gold */
   --color-brand-gold: #d4af37;
+  --color-brand-gold-light: #e8cd76;
   --color-brand-gold-dark: #b5952f;
-  
-  --color-border-color: #2a2a2a;
-  
+
+  --color-border-color: #262626;
+  --color-border-gold: rgba(212, 175, 55, 0.35);
+
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
-  
+
   --spacing-header-height: 80px;
   --spacing-max-width: 1200px;
-  
+
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.5);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.7);
   --shadow-lg: 0 12px 24px rgba(0,0,0,0.9);
-  
+
   --animate-transition-fast: 0.2s ease;
   --animate-transition-normal: 0.3s ease;
 }
@@ -32,7 +38,7 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   html, body {
     height: 100%;
   }
@@ -50,5 +56,23 @@
     font-weight: 500;
     line-height: 1.2;
     color: var(--color-text-primary);
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-brand-gold);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-gold);
+    color: #000000;
   }
 }

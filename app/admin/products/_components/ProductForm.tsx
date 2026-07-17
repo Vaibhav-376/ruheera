@@ -12,11 +12,12 @@ type ProductData = {
   weight?: number;
   images: string[];
   categoryId?: string;
+  gender?: string;
 };
 
 export function ProductForm({ initialData, categories }: { initialData?: ProductData, categories: { id: string; name: string }[] }) {
   const [formData, setFormData] = useState<ProductData>(
-    initialData || { name: "", description: "", price: 0, weight: 0, images: [], categoryId: "" }
+    initialData || { name: "", description: "", price: 0, weight: 0, images: [], categoryId: "", gender: "UNISEX" }
   );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -125,18 +126,33 @@ export function ProductForm({ initialData, categories }: { initialData?: Product
         </div>
       </div>
 
-      <div className="w-full mb-5">
-        <label className="block mb-2 text-sm font-medium">Category</label>
-        <select
-          className="w-full p-3 border border-border-color rounded font-body text-sm transition-colors focus:outline-none focus:border-text-primary bg-bg-primary"
-          value={formData.categoryId || ""}
-          onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })}
-        >
-          <option value="">No Category</option>
-          {categories.map(cat => (
-            <option key={cat.id} value={cat.id}>{cat.name}</option>
-          ))}
-        </select>
+      <div className="flex gap-5 mb-5">
+        <div className="w-1/2">
+          <label className="block mb-2 text-sm font-medium">Category</label>
+          <select
+            className="w-full p-3 border border-border-color rounded font-body text-sm transition-colors focus:outline-none focus:border-text-primary bg-bg-primary"
+            value={formData.categoryId || ""}
+            onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })}
+          >
+            <option value="">No Category</option>
+            {categories.map(cat => (
+              <option key={cat.id} value={cat.id}>{cat.name}</option>
+            ))}
+          </select>
+        </div>
+        
+        <div className="w-1/2">
+          <label className="block mb-2 text-sm font-medium">Gender</label>
+          <select
+            className="w-full p-3 border border-border-color rounded font-body text-sm transition-colors focus:outline-none focus:border-text-primary bg-bg-primary"
+            value={formData.gender || "UNISEX"}
+            onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+          >
+            <option value="UNISEX">Unisex</option>
+            <option value="MEN">Men</option>
+            <option value="WOMEN">Women</option>
+          </select>
+        </div>
       </div>
 
       <div className="w-full mb-8">
@@ -177,7 +193,7 @@ export function ProductForm({ initialData, categories }: { initialData?: Product
         </div>
       </div>
 
-      <button type="submit" className="inline-block bg-text-primary text-bg-primary px-6 py-3 text-sm uppercase tracking-wide border border-text-primary transition-colors hover:bg-bg-primary hover:text-text-primary" disabled={loading}>
+      <button type="submit" className="inline-block bg-brand-gold-dark text-black px-6 py-3 text-sm uppercase tracking-widest font-medium rounded-sm border border-brand-gold-dark transition-all hover:bg-transparent hover:text-brand-gold-dark disabled:opacity-50 disabled:cursor-not-allowed" disabled={loading}>
         {loading ? "Saving..." : "Save Product"}
       </button>
     </form>

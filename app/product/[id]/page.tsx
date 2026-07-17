@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { getProduct } from "@/app/actions/product";
 import { ImageGallery } from "./_components/ImageGallery";
+import { AddToCartBox } from "./_components/AddToCartBox";
 import Link from "next/link";
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
@@ -45,11 +46,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               <p className="text-text-secondary leading-[1.8]">{product.description}</p>
             </div>
             
-            <div className="mb-10">
-              <button className="w-full p-4 text-base font-semibold inline-block bg-text-primary text-bg-primary uppercase tracking-wide border border-text-primary transition-colors hover:bg-bg-primary hover:text-text-primary cursor-pointer">
-                Add to Cart
-              </button>
-            </div>
+            <AddToCartBox
+              productId={product.id}
+              name={product.name}
+              price={product.price}
+              image={product.images?.[0]}
+            />
             
             <div>
               <ul className="flex flex-col gap-3">

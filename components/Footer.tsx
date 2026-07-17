@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-bg-accent pt-16 mt-auto">
+    <footer className="bg-bg-secondary border-t border-border-color pt-16 mt-auto">
       <div className="max-w-[1200px] mx-auto px-6 flex justify-between flex-wrap gap-10 pb-10">
         <div className="flex-1 min-w-[250px]">
           <h3 className="font-heading text-2xl mb-4 text-brand-gold-dark">Ruheera</h3>
           <p className="text-text-secondary leading-relaxed">
-            Discover elegance in every thread with our premium collection of women's ethnic wear.
+            Timeless, handcrafted jewellery for every story you wear.
           </p>
         </div>
         <div className="flex-1 min-w-[250px]">
@@ -24,12 +24,22 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-text-secondary transition-colors duration-200 hover:text-brand-gold-dark">
+              <Link href="/our-story" className="text-text-secondary transition-colors duration-200 hover:text-brand-gold-dark">
                 About Us
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-text-secondary transition-colors duration-200 hover:text-brand-gold-dark">
+              <Link href="/wishlist" className="text-text-secondary transition-colors duration-200 hover:text-brand-gold-dark">
+                Wishlist
+              </Link>
+            </li>
+            <li>
+              <Link href="/cart" className="text-text-secondary transition-colors duration-200 hover:text-brand-gold-dark">
+                Cart
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="text-text-secondary transition-colors duration-200 hover:text-brand-gold-dark">
                 Contact
               </Link>
             </li>
